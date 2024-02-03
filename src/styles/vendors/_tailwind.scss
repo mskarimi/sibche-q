@@ -1,0 +1,17 @@
+@import "src/styles/utils/variables";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn_submit {
+  @apply w-full h-12 font-medium text-base #{!important};
+
+  &.btn_submit_primary {
+    @apply bg-primary #{!important};
+  }
+
+  &.btn_submit_outline {
+    @apply border-primary text-primary #{!important};
+  }
+}
