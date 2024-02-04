@@ -7,7 +7,7 @@ function HomeProductDetail() {
 
   if (!data) return null;
   return (
-    <div>
+    <div className="px-screenSpace">
       <HomeProductDetailCard title="title" value={data.title} />
       <HomeProductDetailCard title="category" value={data.category} />
       <HomeProductDetailCard title="description" value={data.description} />

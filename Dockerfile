@@ -10,7 +10,7 @@ RUN yarn && yarn cache clean
 COPY . .
 RUN yarn build
 
-USER nextjs
+USER node
 
 EXPOSE 3000
 

@@ -16,6 +16,7 @@ const config: Config = {
         md: "768px",
         lg: "900px",
         xl: "1200px",
+        "2xl": "1400px",
       },
       fontFamily: {
         IranSans: ["var(--font-iransans)", ...fontFamily.sans],

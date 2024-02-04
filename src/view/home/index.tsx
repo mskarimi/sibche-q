@@ -3,7 +3,7 @@ import HomeProductDetail from "@sibche-q/view/home/component/HomeProductDetail";
 
 function Home() {
   return (
-    <div className="px-screenSpace">
+    <div>
       <HomeSwiper />
       <HomeProductDetail />
     </div>

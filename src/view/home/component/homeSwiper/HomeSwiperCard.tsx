@@ -33,7 +33,7 @@ function HomeSwiperCard(props: IHomeSwiperCard) {
           width={194}
           height={250}
           className="w-full h-full object-center object-contain p-2"
-          // placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNUnPbZGAAEaQHfbioZ7gAAAABJRU5ErkJggg=="
+          placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNUnPbZGAAEaQHfbioZ7gAAAABJRU5ErkJggg=="
         />
       </div>
       <div className="flex flex-col justify-between m-5 w-full">
@@ -55,14 +55,14 @@ function HomeSwiperCard(props: IHomeSwiperCard) {
         <div className="flex justify-end">
           <Button
             type="primary"
-            className="bg-lime-700 px-8 h-10 rounded-md pt-[0.2rem] pb-0 mr-2"
+            className="bg-lime-700 px-5 2xl:px-8 h-10 rounded-md pt-[0.2rem] pb-0 mr-2"
             onClick={detailOnClick}
           >
             Detail
           </Button>
           <Button
             type="primary"
-            className="bg-primary px-8 h-10 rounded-md pt-[0.2rem] pb-0"
+            className="bg-primary px-5 2xl:px-8 h-10 rounded-md pt-[0.2rem] pb-0"
             onClick={nextOnClick}
           >
             Next

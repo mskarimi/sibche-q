@@ -58,7 +58,7 @@ function HomeSwiper() {
   );
 
   return (
-    <div className="flex justify-between py-8 overflow-y-hidden overflow-x-auto">
+    <div className="flex justify-between py-8 overflow-y-hidden overflow-x-auto px-screenSpace">
       {finalData.map((product, index) => {
         return (
           <HomeSwiperCard
