@@ -1,0 +1,6 @@
+services:
+  web:
+    build: .
+    container_name: sibche_c
+    ports:
+      - "5000:3000"

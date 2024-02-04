@@ -11,7 +11,8 @@
     "check-type": "tsc --pretty --noEmit",
     "check-format": "prettier --check .",
     "format": "prettier --write .",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "docker-up": "sudo docker-compose up -d"
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.18.4",
