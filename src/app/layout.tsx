@@ -15,7 +15,7 @@ const className = `template antialiased ${iranSans.variable} font-IranSans bg-ma
 
 export default function RootLayout({children}: PropsWithChildren) {
   return (
-    <html lang="fa" dir="rtl">
+    <html lang="fa" dir="ltr">
       <body className={className}>
         <div className="flex flex-col h-full">
           <ReactQueryProvider>

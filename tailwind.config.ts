@@ -29,6 +29,9 @@ const config: Config = {
         screenSpace: "20px",
         headerNormal: "56px",
       },
+      maxWidth: ({theme}) => ({
+        ...theme("spacing"),
+      }),
     },
   },
   plugins: [],
