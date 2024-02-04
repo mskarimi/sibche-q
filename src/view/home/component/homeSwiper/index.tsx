@@ -1,18 +1,33 @@
+"use client";
+
 import HomeSwiperCard from "@sibche-q/view/home/component/homeSwiper/HomeSwiperCard";
+import {useQuery} from "@tanstack/react-query";
+import {REACT_QUERY_KEYS} from "@sibche-q/utils/const";
+import {getProducts} from "@sibche-q/services/getProducts";
 
 function HomeSwiper() {
+  const {data} = useQuery({
+    queryKey: [REACT_QUERY_KEYS.PRODUCT_LIST],
+    queryFn: () => getProducts(),
+    staleTime: 10 * 60 * 1000,
+  });
+
+  console.log("data", data);
+
+  // const finalData = useMemo(() => data?.splice(0, 3) || [], [data]);
+
   return (
     <div className="flex justify-between px-2 py-8 overflow-y-hidden overflow-x-auto">
-      {new Array(3).fill(1).map((item, index) => {
+      {data?.slice(0, 3).map((item) => {
         return (
           <HomeSwiperCard
-            key={index}
-            title="title"
-            price={20000}
-            rate={10}
-            category="category"
-            image="https://picsum.photos/250/175"
-            count={200}
+            key={item.id}
+            title={item.title}
+            price={item.price}
+            rate={item.rating.rate}
+            count={item.rating.count}
+            category={item.category}
+            image={item.image}
           />
         );
       })}

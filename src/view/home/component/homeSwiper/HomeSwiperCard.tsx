@@ -13,18 +13,18 @@ interface IHomeSwiperCard {
 function HomeSwiperCard(props: IHomeSwiperCard) {
   const {price, image, category, title, rate, count} = props;
   return (
-    <div className="flex min-w-[400px] w-1/3 max-w-1/3 h-[250px] mr-5 bg-white shadow-xl rounded-md overflow-hidden">
-      <div className="relative w-[175px] h-full">
+    <div className="flex min-w-[400px] w-1/3 max-w-1/3 h-[250px] mr-5 last:mr-0 bg-white shadow-xl rounded-md overflow-hidden">
+      <div className="relative min-w-[194px] w-[194px] h-full">
         <Image
           alt={title}
           src={image}
-          width={175}
+          width={194}
           height={250}
-          className="w-full h-full object-center object-cover"
+          className="w-full h-full object-center object-contain p-2"
           placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNUnPbZGAAEaQHfbioZ7gAAAABJRU5ErkJggg=="
         />
       </div>
-      <div className="m-2 w-full">
+      <div className="flex flex-col justify-between m-2 w-full">
         <div>{title}</div>
         <div>
           <span>category:</span>
