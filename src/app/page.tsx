@@ -4,6 +4,7 @@ import {REACT_QUERY_KEYS} from "@sibche-q/utils/const";
 import {getProducts} from "@sibche-q/services/getProducts";
 import {dehydrate} from "@tanstack/query-core";
 import Hydrate from "@sibche-q/lib/reactQuery/hydrate.client";
+import HomeProductDetailProvider from "@sibche-q/view/home/context/HomeProductDetailProvider";
 
 async function HomePage() {
   const queryClient = getQueryClient();
@@ -15,7 +16,9 @@ async function HomePage() {
 
   return (
     <Hydrate state={dehydratedState}>
-      <Home />
+      <HomeProductDetailProvider>
+        <Home />
+      </HomeProductDetailProvider>
     </Hydrate>
   );
 }

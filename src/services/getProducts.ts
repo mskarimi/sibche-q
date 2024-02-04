@@ -10,10 +10,12 @@ export interface IProductItems {
   description: string;
   category: string;
   image: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
+  rating: IProductRating;
+}
+
+export interface IProductRating {
+  rate: number;
+  count: number;
 }
 
 type TGetProducts = (isServer?: boolean) => Promise<TGetProductRes>;

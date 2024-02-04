@@ -9,12 +9,14 @@ import {
   TGetProductRes,
 } from "@sibche-q/services/getProducts";
 import {useCallback, useRef, useState} from "react";
+import {useHomeProductDetailAction} from "@sibche-q/view/home/context/HomeProductDetailProvider";
 
 interface IShowIdList {
   [x: number]: number;
 }
 
 function HomeSwiper() {
+  const dispatch = useHomeProductDetailAction();
   const {data} = useQuery({
     queryKey: [REACT_QUERY_KEYS.PRODUCT_LIST],
     queryFn: () => getProducts(),
@@ -27,9 +29,9 @@ function HomeSwiper() {
   const unVisitedData = useRef<TGetProductRes>(data?.slice(3) || []);
   const visitedData = useRef<TGetProductRes>([]);
 
-  const onClick = useCallback(
-    (product: IProductItems, index: number, finalData: TGetProductRes) => {
-      const tmp = [...finalData];
+  const nextOnClick = useCallback(
+    (product: IProductItems, index: number, currentData: TGetProductRes) => {
+      const tmp = [...currentData];
       let nextData = unVisitedData.current[0];
       if (nextData) {
         tmp[index] = nextData;
@@ -50,8 +52,13 @@ function HomeSwiper() {
     [data]
   );
 
+  const detailOnClick = useCallback(
+    (product: IProductItems) => dispatch(product),
+    [dispatch]
+  );
+
   return (
-    <div className="flex justify-between px-2 py-8 overflow-y-hidden overflow-x-auto">
+    <div className="flex justify-between py-8 overflow-y-hidden overflow-x-auto">
       {finalData.map((product, index) => {
         return (
           <HomeSwiperCard
@@ -62,7 +69,8 @@ function HomeSwiper() {
             count={product.rating.count}
             category={product.category}
             image={product.image}
-            onClick={() => onClick(product, index, finalData)}
+            nextOnClick={() => nextOnClick(product, index, finalData)}
+            detailOnClick={() => detailOnClick(product)}
           />
         );
       })}

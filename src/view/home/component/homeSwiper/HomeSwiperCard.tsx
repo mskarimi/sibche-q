@@ -9,11 +9,21 @@ interface IHomeSwiperCard {
   category: string;
   rate: number;
   count: number;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  nextOnClick: MouseEventHandler<HTMLButtonElement>;
+  detailOnClick: MouseEventHandler<HTMLButtonElement>;
 }
 
 function HomeSwiperCard(props: IHomeSwiperCard) {
-  const {price, image, category, title, rate, count, onClick} = props;
+  const {
+    price,
+    image,
+    category,
+    title,
+    rate,
+    count,
+    nextOnClick,
+    detailOnClick,
+  } = props;
   return (
     <div className="flex min-w-[400px] w-1/3 max-w-1/3 h-[250px] mr-5 last:mr-0 bg-white shadow-xl rounded-md overflow-hidden">
       <div className="relative min-w-[194px] w-[194px] h-full">
@@ -45,8 +55,15 @@ function HomeSwiperCard(props: IHomeSwiperCard) {
         <div className="flex justify-end">
           <Button
             type="primary"
+            className="bg-lime-700 px-8 h-10 rounded-md pt-[0.2rem] pb-0 mr-2"
+            onClick={detailOnClick}
+          >
+            Detail
+          </Button>
+          <Button
+            type="primary"
             className="bg-primary px-8 h-10 rounded-md pt-[0.2rem] pb-0"
-            onClick={onClick}
+            onClick={nextOnClick}
           >
             Next
           </Button>
