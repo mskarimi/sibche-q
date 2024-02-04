@@ -2,6 +2,7 @@ import type {Config} from "tailwindcss";
 import {fontFamily} from "tailwindcss/defaultTheme";
 
 const config: Config = {
+  important: true,
   content: [
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
